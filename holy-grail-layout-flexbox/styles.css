@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+}
+
+header, footer {
+    padding: 1rem;
+    background-color: #f0f0f0; 
+}
+
+.container {
+    display: flex; 
+    flex: 1; 
+}
+
+.sidebar, .extra {
+    flex: 1;
+    padding: 1rem;
+    background-color: #e0e0e0; 
+    flex-basis: 150px;
+}
+
+.content {
+    flex: 5; 
+    padding: 1rem;
+}

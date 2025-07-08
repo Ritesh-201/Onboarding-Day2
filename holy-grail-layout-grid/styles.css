@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+}
+
+header, footer {
+    padding: 1rem;
+    background-color: #f0f0f0; 
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 350px;
+    flex: 1; 
+}
+
+.sidebar, .extra {
+    padding: 1rem;
+    background-color: #e0e0e0; 
+}
+
+.content {
+    padding: 1rem;
+}
+

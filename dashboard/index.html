@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                    <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+            <h1>Dashboard - Day2 Assignment</h1>
+            <div class="avatar">RS</div>
+        </header>
+
+        <nav class="sidebar">
+            <a href="#" class="nav-link active" data-section="overview">Overview</a>
+            <a href="#" class="nav-link" data-section="analytics">Analytics</a>
+            <a href="#" class="nav-link" data-section="purchase">Purchase</a>
+            <a href="#" class="nav-link" data-section="settings">Settings</a>
+            <a href="#modal" class="modal-trigger">Mini Assignment - Modal with CSS</a>
+        </nav>
+
+        <main>
+            <!-- Overview Section -->
+            <div class="content-section" id="overview">
+                <div class="stats">
+                    <div class="card">
+                        <h3>Users</h3>
+                        <p>2,543</p>
+                    </div>
+                    <div class="card">
+                        <h3>Revenue</h3>
+                        <p>$45,231</p>
+                    </div>
+                    <div class="card">
+                        <h3>Orders</h3>
+                        <p>1,234</p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="card">
+                        <h2>Analytics</h2>
+                        <div class="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                    </div>
+                    <div class="card">
+                        <h2>Activity</h2>
+                        <div class="activity">
+                            <p>Lorem ipsum dolor sit amet</p>
+                            <p>Consectetur adipiscing elit</p>
+                            <p>Sed do eiusmod tempor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-section" id="analytics" style="display: none;">
+                <div class="content">
+                    <div class="card">
+                        <h2>Analytics Dashboard</h2>
+                        <div class="placeholder">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit possimus sit mollitia.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="purchase" style="display: none;">
+                <div class="content">
+                    <div class="card">
+                        <h2>Purchase Management</h2>
+                        <div class="placeholder">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit possimus sit mollitia.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="settings" style="display: none;">
+                <div class="content">
+                    <div class="card">
+                        <h2>Settings</h2>
+                        <div class="placeholder">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit possimus sit mollitia.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+  
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                
+                this.classList.add('active');
+                
+                contentSections.forEach(section => section.style.display = 'none');
+
+                const targetSection = this.getAttribute('data-section');
+                document.getElementById(targetSection).style.display = 'block';
+                
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.sidebar').classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+    <div id="modal" class="modal">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Task3</h2>
+                    <a href="#" class="modal-close">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <h3>Mini Assignment - Modal with CSS</h3>
+                    <p>Generaly we make modals using JS by adding styles on eventlisteners, but the assignment was for CSS so here ot is!</p>
+                    <p>Key features:</p>
+                    <ul>
+                        <li>Opens and closes using CSS :target pseudo-class</li>
+                        <li>Smooth animations with CSS transitions</li>
+                        <li>Accessible with keyboard navigation</li>
+                        <li>Responsive design</li>
+                        <li>Overlay background with blur effect</li>
+                    </ul>
+                    <p>I'm sure you know how to close this modal...</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-primary">Got it!</a>
+                    <a href="#" class="btn btn-secondary">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
